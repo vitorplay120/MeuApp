@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:Treinamento_App"    
+             xmlns:controls1="clr-namespace:Treinamento_App.ViewModels"
+             x:Class="Treinamento_App.Views.Login">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="LightGreenColor">#2FA999</Color>
+            <Color x:Key="BorderColor">#D8D8D8</Color>
+
+            <Style x:Key="LableStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#666666" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style x:Key="FrameStyle" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
+            </Style>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Margin" Value="5,0,0,0"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Image Margin="0,0,0,30" Source="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQyHTndhbwu7MrEVghNcZf4YgGKz7INhiaPEA6i5QvUUF9sfuR"></Image>
+            <Frame HasShadow="False" CornerRadius="5" BorderColor="{StaticResource BorderColor}" BackgroundColor="#F7F7F7">
+
+                <StackLayout>
+                    
+                    <Label Style="{StaticResource LableStyle}" Text="Usuário" />
+                    <Frame Style="{StaticResource FrameStyle}">
+                        <controls1:CustomEntry x:Name="txtUserId" Keyboard="Numeric" Style="{StaticResource EntryStyle}" Completed="SalvarUsuarioCompleted" TextChanged="SalvarUsuario"></controls1:CustomEntry>
+                    </Frame>
+                    <Label Style="{StaticResource LableStyle}" Text="Senha"></Label>
+                    <Frame Style="{StaticResource FrameStyle}">
+                        <controls1:CustomEntry IsPassword="True" x:Name="txtPassword" Style="{StaticResource EntryStyle}" Completed="SalvarSenhaCompleted" TextChanged="SalvarSenha"></controls1:CustomEntry>
+                    </Frame>
+                    <Button Margin="100,20" BorderRadius="6" WidthRequest="200" x:Name="ShopIDSubmit" TextColor="White" BackgroundColor="{StaticResource LightGreenColor}" Text="Cadastrar"></Button>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
